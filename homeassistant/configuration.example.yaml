@@ -1,0 +1,35 @@
+# Home Assistant Example Configuration for Clinton Shadow DVR
+# Place in /config/configuration.yaml
+
+ffmpeg:
+
+camera:
+  - platform: ffmpeg
+    name: "Clinton DVR C01"
+    input: "-analyzeduration 0 -probesize 32 -rtsp_transport tcp -fflags nobuffer -flags low_delay -i rtsp://10.1.1.250:554/live/0"
+    extra_arguments: "-vf scale=640:480"
+
+  - platform: ffmpeg
+    name: "Clinton DVR C02"
+    input: "-analyzeduration 0 -probesize 32 -rtsp_transport tcp -fflags nobuffer -flags low_delay -i rtsp://10.1.1.250:554/live/1"
+    extra_arguments: "-vf scale=640:480"
+
+homekit:
+  - name: "Clinton DVR"
+    port: 21064
+    pincode: "201-21-013"
+    filter:
+      include_entities:
+        - camera.clinton_dvr_c01
+        - camera.clinton_dvr_c02
+    entity_config:
+      camera.clinton_dvr_c01:
+        stream_source: "-analyzeduration 0 -probesize 32 -rtsp_transport tcp -fflags nobuffer -flags low_delay -i rtsp://10.1.1.250:554/live/0"
+        video_map: "0:v:0 -vf scale=640:480"
+        support_audio: false
+        max_fps: 15
+      camera.clinton_dvr_c02:
+        stream_source: "-analyzeduration 0 -probesize 32 -rtsp_transport tcp -fflags nobuffer -flags low_delay -i rtsp://10.1.1.250:554/live/1"
+        video_map: "0:v:0 -vf scale=640:480"
+        support_audio: false
+        max_fps: 15
