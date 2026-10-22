@@ -152,6 +152,13 @@ docker run --rm -v $(pwd):/work -w /work debian:bookworm-slim bash -c "
 
 ---
 
+## ⚠️ Disclaimer / 免责声明
+
+* **English**: This project is developed strictly for educational, security research, and hardware interoperability purposes. Modifying embedded device firmware, enabling root access, and executing custom software carries inherent risks. **Use of this software is strictly at your own risk.** The author(s) and contributor(s) assume no liability or responsibility whatsoever for any direct or indirect damages, hardware bricking, loss of data, security issues, or any other consequences arising from the use or misuse of this toolkit.
+* **中文**: 本项目仅供技术研究、学习与设备互操作性测试目的。对嵌入式设备固件进行修改、获取 Root 权限或运行自定义软件均具有潜在风险。**使用本软件所造成的一切后果由使用者自负**。作者及贡献者对因使用或不当使用本项目而导致的任何直接或间接损失、硬件变砖损坏、数据丢失或系统安全隐患概不承担任何法律责任。
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
