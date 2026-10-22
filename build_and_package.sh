@@ -60,7 +60,7 @@ chmod +x "$USB_DIR/rc.upgrade.ext" "$USB_DIR/install.sh"
 chmod +x "$PAYLOAD_DIR/astel_rtspd" "$PAYLOAD_DIR/dvr_auth" "$PAYLOAD_DIR/"*.cgi
 
 echo "[4/4] Creating USB distribution zip archive..."
-ZIP_NAME="clinton-shadow-toolkit-usb.zip"
+ZIP_NAME="CE-R4S-Modernizer-v1.0.0-USB.zip"
 ZIP_PATH="$DIST_DIR/$ZIP_NAME"
 rm -f "$ZIP_PATH"
 

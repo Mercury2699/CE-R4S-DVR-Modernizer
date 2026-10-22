@@ -35,14 +35,14 @@ Open-source firmware enhancements, native standalone RTSP streaming daemon, and 
 No serial cables, soldering, or firmware flashing tools needed.
 
 ### 1. Download or Build the Package
-Download the latest `clinton-shadow-toolkit-usb.zip` from Releases, or build it locally:
+Download the latest `CE-R4S-Modernizer-v1.0.0-USB.zip` from Releases, or build it locally:
 ```bash
 ./build_and_package.sh
 ```
 
 ### 2. Prepare the USB Drive
 1. Format any standard USB flash drive as **FAT32** (MBR partition scheme).
-2. Extract `clinton-shadow-toolkit-usb.zip` directly into the **root** of the USB drive:
+2. Extract `CE-R4S-Modernizer-v1.0.0-USB.zip` directly into the **root** of the USB drive:
    ```text
    /Volumes/USB/
    ├── rc.upgrade.ext       <-- Firmware auto-run hook
