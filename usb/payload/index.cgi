@@ -4,7 +4,7 @@ echo "Cache-Control: no-cache, no-store, must-revalidate"
 echo ""
 cat << 'EOF'
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -689,16 +689,16 @@ cat << 'EOF'
         <!-- Uptime Badge -->
         <div class="uptime-badge" id="valUptime">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          <span id="uptimeText">运行时间: 获取中...</span>
+          <span id="uptimeText">Uptime: Loading...</span>
         </div>
         <!-- Theme Selector -->
         <div class="theme-selector">
-          <button class="theme-btn" id="themeAuto" onclick="setTheme('auto')">🌓 自动</button>
-          <button class="theme-btn" id="themeDark" onclick="setTheme('dark')">🌙 暗色</button>
-          <button class="theme-btn" id="themeLight" onclick="setTheme('light')">☀️ 亮色</button>
+          <button class="theme-btn" id="themeAuto" onclick="setTheme('auto')">🌓 Auto</button>
+          <button class="theme-btn" id="themeDark" onclick="setTheme('dark')">🌙 Dark</button>
+          <button class="theme-btn" id="themeLight" onclick="setTheme('light')">☀️ Light</button>
         </div>
-        <button class="btn-action" onclick="refreshImages(true)">🔄 刷新画面</button>
-        <button class="btn-action btn-danger" onclick="triggerReboot()">⚡ 重启系统</button>
+        <button class="btn-action" onclick="refreshImages(true)">🔄 Refresh Feeds</button>
+        <button class="btn-action btn-danger" onclick="triggerReboot()">⚡ Reboot System</button>
       </div>
     </header>
 
@@ -706,7 +706,7 @@ cat << 'EOF'
     <div class="grid">
       <div class="card">
         <div class="card-title">
-          <span>系统负载 (1m / 5m / 15m)</span>
+          <span>System Load (1m / 5m / 15m)</span>
           <span id="txtCpuPct">--%</span>
         </div>
         <div class="card-value" id="valLoad">-- / -- / --</div>
@@ -717,7 +717,7 @@ cat << 'EOF'
 
       <div class="card">
         <div class="card-title">
-          <span>内存使用 (RAM 104 MB)</span>
+          <span>Memory Usage (RAM 104 MB)</span>
           <span id="txtMemPct">--%</span>
         </div>
         <div class="card-value" id="valMem">-- / 104 MB</div>
@@ -728,7 +728,7 @@ cat << 'EOF'
 
       <div class="card">
         <div class="card-title">
-          <span>本地闪存 (JFFS2 Flash)</span>
+          <span>Flash Storage (JFFS2 MTD)</span>
           <span id="txtMtdPct">--%</span>
         </div>
         <div class="card-value" id="valMtd">-- / 5.8 MB</div>
@@ -739,7 +739,7 @@ cat << 'EOF'
 
       <div class="card">
         <div class="card-title">
-          <span>录像硬盘 (WD Blue 1TB)</span>
+          <span>Storage Pool (SATA HDD)</span>
           <span id="txtHddPct">--%</span>
         </div>
         <div class="card-value" id="valHdd">-- / 912 GB</div>
@@ -753,14 +753,14 @@ cat << 'EOF'
     <div class="camera-section">
       <div class="camera-section-header">
         <div class="camera-section-title">
-          <span>📹 实时监控画面</span>
+          <span>📹 Live Camera Feeds</span>
         </div>
       </div>
       <div class="camera-grid">
         <!-- Channel 0 -->
         <div class="camera-card">
           <div class="camera-header">
-            <span class="camera-name">CH 1: 前门监控 (Front Door)</span>
+            <span class="camera-name">CH 1: Camera 01 (Front Door)</span>
           </div>
           <div class="camera-viewport">
             <canvas class="camera-img" id="cam0" width="640" height="480"></canvas>
@@ -768,11 +768,11 @@ cat << 'EOF'
           </div>
           <div class="camera-info-bar">
             <div class="camera-info-row">
-              <span>分辨率: D1 (4:3)</span>
+              <span>Resolution: D1 (4:3)</span>
             </div>
-            <div class="rtsp-pill" onclick="copyRtsp('rtsp://10.1.1.250:554/live/0', this)" title="点击复制 RTSP 直连地址">
+            <div class="rtsp-pill" onclick="copyRtsp('rtsp://10.1.1.250:554/live/0', this)" title="Click to copy RTSP direct URL">
               <span>📋 rtsp://10.1.1.250:554/live/0</span>
-              <span style="font-size: 0.7rem; color: var(--accent);">点击复制</span>
+              <span style="font-size: 0.7rem; color: var(--accent);">Copy RTSP</span>
             </div>
           </div>
         </div>
@@ -780,7 +780,7 @@ cat << 'EOF'
         <!-- Channel 1 -->
         <div class="camera-card">
           <div class="camera-header">
-            <span class="camera-name">CH 2: 侧门监控 (Side Yard)</span>
+            <span class="camera-name">CH 2: Camera 02 (Side Yard)</span>
           </div>
           <div class="camera-viewport">
             <canvas class="camera-img" id="cam1" width="640" height="480"></canvas>
@@ -788,11 +788,11 @@ cat << 'EOF'
           </div>
           <div class="camera-info-bar">
             <div class="camera-info-row">
-              <span>分辨率: D1 (4:3)</span>
+              <span>Resolution: D1 (4:3)</span>
             </div>
-            <div class="rtsp-pill" onclick="copyRtsp('rtsp://10.1.1.250:554/live/1', this)" title="点击复制 RTSP 直连地址">
+            <div class="rtsp-pill" onclick="copyRtsp('rtsp://10.1.1.250:554/live/1', this)" title="Click to copy RTSP direct URL">
               <span>📋 rtsp://10.1.1.250:554/live/1</span>
-              <span style="font-size: 0.7rem; color: var(--accent);">点击复制</span>
+              <span style="font-size: 0.7rem; color: var(--accent);">Copy RTSP</span>
             </div>
           </div>
         </div>
@@ -803,51 +803,51 @@ cat << 'EOF'
     <div class="terminal-card">
       <div class="card-title">
         <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-          <span>💻 嵌入式系统控制台 (Web Root Shell)</span>
-          <span id="shellAuthStatus" class="auth-pill">🔒 预设免密 / 自定义需验证</span>
+          <span>💻 Embedded System Console (Web Root Shell)</span>
+          <span id="shellAuthStatus" class="auth-pill">🔒 Presets Open / Auth for Custom Shell</span>
         </span>
         <span style="font-size: 0.75rem; color: var(--text-muted);">ASTEL-LT BusyBox v1.18.4 • ARMv4l</span>
       </div>
       <div class="term-box" id="termOutput">~ # Clinton CE-R4S Web Console Ready.
-~ # 点击下方常用命令速查表可直接免密执行；输入自定义命令将提示管理员身份验证...</div>
+~ # Click any preset command below to run instantly; custom shell commands require administrator authentication...</div>
       <div class="term-input-box">
-        <input type="text" class="term-input" id="termInput" placeholder="输入自定义命令 (如: ps, df -h, netstat -tlpn, uname -a)..." onkeydown="if(event.key==='Enter') sendTermCmd()">
-        <button class="term-btn" onclick="sendTermCmd()">执行命令</button>
+        <input type="text" class="term-input" id="termInput" placeholder="Enter custom shell command (e.g., ps, df -h, netstat -tlpn, uname -a)..." onkeydown="if(event.key==='Enter') sendTermCmd()">
+        <button class="term-btn" onclick="sendTermCmd()">Execute</button>
       </div>
 
       <!-- Available Commands Table -->
       <div class="cmd-table-card">
-        <div class="cmd-category-title">⚙️ 系统状态与硬件信息</div>
+        <div class="cmd-category-title">⚙️ System Status & Hardware</div>
         <div class="cmd-chips-group">
-          <span class="cmd-chip" data-cmd="uname -a">uname -a <span class="cmd-desc">内核与架构</span></span>
-          <span class="cmd-chip" data-cmd="uptime">uptime <span class="cmd-desc">运行时间与平均负载</span></span>
-          <span class="cmd-chip" data-cmd="free">free <span class="cmd-desc">内存占用统计</span></span>
-          <span class="cmd-chip" data-cmd="df -h">df -h <span class="cmd-desc">挂载点与磁盘剩余空间</span></span>
-          <span class="cmd-chip" data-cmd="cat /proc/cpuinfo">cat /proc/cpuinfo <span class="cmd-desc">FA526 CPU 详情</span></span>
+          <span class="cmd-chip" data-cmd="uname -a">uname -a <span class="cmd-desc">Kernel & Arch</span></span>
+          <span class="cmd-chip" data-cmd="uptime">uptime <span class="cmd-desc">Uptime & Load Average</span></span>
+          <span class="cmd-chip" data-cmd="free">free <span class="cmd-desc">Memory Statistics</span></span>
+          <span class="cmd-chip" data-cmd="df -h">df -h <span class="cmd-desc">Mount Points & Disk Space</span></span>
+          <span class="cmd-chip" data-cmd="cat /proc/cpuinfo">cat /proc/cpuinfo <span class="cmd-desc">FA526 CPU Details</span></span>
         </div>
 
-        <div class="cmd-category-title" style="margin-top: 0.6rem;">🔍 进程与服务监控</div>
+        <div class="cmd-category-title" style="margin-top: 0.6rem;">🔍 Processes & Services</div>
         <div class="cmd-chips-group">
-          <span class="cmd-chip" data-cmd="ps">ps <span class="cmd-desc">完整进程列表</span></span>
-          <span class="cmd-chip" data-cmd="ps | grep -E 'nova|astel|webfsd'">ps | grep -E "nova|astel|webfsd" <span class="cmd-desc">关键守护进程状态</span></span>
-          <span class="cmd-chip" data-cmd="netstat -tlpn">netstat -tlpn <span class="cmd-desc">监听端口 (23, 80, 554, 7000)</span></span>
-          <span class="cmd-chip" data-cmd="top -n 1">top -n 1 <span class="cmd-desc">实时 CPU 占用榜</span></span>
+          <span class="cmd-chip" data-cmd="ps">ps <span class="cmd-desc">Full Process List</span></span>
+          <span class="cmd-chip" data-cmd="ps | grep -E 'nova|astel|webfsd'">ps | grep -E "nova|astel|webfsd" <span class="cmd-desc">Key Daemons Status</span></span>
+          <span class="cmd-chip" data-cmd="netstat -tlpn">netstat -tlpn <span class="cmd-desc">Listening Ports (23, 80, 554, 7000)</span></span>
+          <span class="cmd-chip" data-cmd="top -n 1">top -n 1 <span class="cmd-desc">Real-Time CPU Usage</span></span>
         </div>
 
-        <div class="cmd-category-title" style="margin-top: 0.6rem;">🌐 网络与路由信息</div>
+        <div class="cmd-category-title" style="margin-top: 0.6rem;">🌐 Network & Routing</div>
         <div class="cmd-chips-group">
-          <span class="cmd-chip" data-cmd="ifconfig">ifconfig <span class="cmd-desc">网卡配置与收发包统计</span></span>
-          <span class="cmd-chip" data-cmd="route -n">route -n <span class="cmd-desc">路由表与默认网关</span></span>
-          <span class="cmd-chip" data-cmd="arp -a">arp -a <span class="cmd-desc">局域网 ARP 设备缓存</span></span>
-          <span class="cmd-chip" data-cmd="ping -c 3 10.1.1.1">ping -c 3 10.1.1.1 <span class="cmd-desc">网关连通性测试</span></span>
+          <span class="cmd-chip" data-cmd="ifconfig">ifconfig <span class="cmd-desc">Network Interfaces & I/O Stats</span></span>
+          <span class="cmd-chip" data-cmd="route -n">route -n <span class="cmd-desc">Routing Table & Gateway</span></span>
+          <span class="cmd-chip" data-cmd="arp -a">arp -a <span class="cmd-desc">LAN ARP Cache</span></span>
+          <span class="cmd-chip" data-cmd="ping -c 3 10.1.1.1">ping -c 3 10.1.1.1 <span class="cmd-desc">Gateway Ping Check</span></span>
         </div>
 
-        <div class="cmd-category-title" style="margin-top: 0.6rem;">📁 闪存与磁盘目录</div>
+        <div class="cmd-category-title" style="margin-top: 0.6rem;">📁 Storage Directories & Logs</div>
         <div class="cmd-chips-group">
-          <span class="cmd-chip" data-cmd="ls -la /mtd">ls -la /mtd <span class="cmd-desc">Flash 固件配置目录</span></span>
-          <span class="cmd-chip" data-cmd="ls -lh /mtd/bin">ls -lh /mtd/bin <span class="cmd-desc">自定义可执行文件 (astel_rtspd)</span></span>
-          <span class="cmd-chip" data-cmd="ls -la /ide">ls -la /ide <span class="cmd-desc">内置 SATA/IDE 硬盘分区</span></span>
-          <span class="cmd-chip" data-cmd="dmesg | tail -n 25">dmesg | tail -n 25 <span class="cmd-desc">内核最新日志</span></span>
+          <span class="cmd-chip" data-cmd="ls -la /mtd">ls -la /mtd <span class="cmd-desc">Flash Firmware Directory</span></span>
+          <span class="cmd-chip" data-cmd="ls -lh /mtd/bin">ls -lh /mtd/bin <span class="cmd-desc">Custom Binaries (astel_rtspd)</span></span>
+          <span class="cmd-chip" data-cmd="ls -la /ide">ls -la /ide <span class="cmd-desc">Internal SATA Storage</span></span>
+          <span class="cmd-chip" data-cmd="dmesg | tail -n 25">dmesg | tail -n 25 <span class="cmd-desc">Recent Kernel Messages</span></span>
         </div>
       </div>
     </div>
@@ -863,26 +863,26 @@ cat << 'EOF'
     <div class="modal-card">
       <div class="modal-header">
         <span style="font-weight:700; font-size:0.95rem; display:flex; align-items:center; gap:0.4rem;">
-          🔒 Web Shell 管理员身份验证
+          🔒 Web Shell Administrator Authentication
         </span>
         <span class="modal-close" onclick="closeAuthModal()">✕</span>
       </div>
       <div class="modal-body">
         <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.9rem; line-height:1.45;">
-          执行自定义 Shell 命令需要通过管理员身份验证。常用预设命令无需验证。
+          Executing custom shell commands requires administrator authentication. Preset diagnostic commands run without verification.
         </div>
         <div style="margin-bottom:0.75rem;">
-          <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:0.3rem;">用户名 (Username)</label>
-          <input type="text" id="authUserInput" class="modal-input" placeholder="输入管理员用户名" value="">
+          <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:0.3rem;">Username</label>
+          <input type="text" id="authUserInput" class="modal-input" placeholder="Enter admin username" value="">
         </div>
         <div style="margin-bottom:0.85rem;">
-          <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:0.3rem;">密码 (Password)</label>
-          <input type="password" id="authPassInput" class="modal-input" placeholder="输入管理密码" onkeydown="if(event.key==='Enter') submitAuthModal()">
+          <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:0.3rem;">Password</label>
+          <input type="password" id="authPassInput" class="modal-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter') submitAuthModal()">
         </div>
         <div id="authErrorMsg" style="color:var(--danger); font-size:0.78rem; margin-bottom:0.65rem; display:none;"></div>
         <div style="display:flex; justify-content:flex-end; gap:0.5rem;">
-          <button class="btn-action" onclick="closeAuthModal()">取消</button>
-          <button class="term-btn" onclick="submitAuthModal()" id="btnSubmitAuth">验证并执行</button>
+          <button class="btn-action" onclick="closeAuthModal()">Cancel</button>
+          <button class="term-btn" onclick="submitAuthModal()" id="btnSubmitAuth">Verify & Run</button>
         </div>
       </div>
     </div>
@@ -928,10 +928,10 @@ cat << 'EOF'
       if (!el) return;
       if (u) {
         el.className = 'auth-pill auth-ok';
-        el.innerHTML = '🔓 管理员已解锁: ' + u + ' <button onclick="logoutShell(event)" class="auth-logout-btn">退出</button>';
+        el.innerHTML = '🔓 Authenticated: ' + u + ' <button onclick="logoutShell(event)" class="auth-logout-btn">Logout</button>';
       } else {
         el.className = 'auth-pill';
-        el.innerHTML = '🔒 预设免密 / 自定义需验证';
+        el.innerHTML = '🔒 Presets Open / Auth for Custom Shell';
       }
     }
 
@@ -959,19 +959,19 @@ cat << 'EOF'
       const err = document.getElementById('authErrorMsg');
       const btn = document.getElementById('btnSubmitAuth');
       if (!u) {
-        err.textContent = '请输入用户名';
+        err.textContent = 'Please enter username';
         err.style.display = 'block';
         return;
       }
       btn.disabled = true;
-      btn.textContent = '验证中...';
+      btn.textContent = 'Verifying...';
       err.style.display = 'none';
 
       fetch('/api_exec.cgi?action=check_auth&u=' + encodeURIComponent(u) + '&p=' + encodeURIComponent(p))
         .then(r => r.text())
         .then(res => {
           btn.disabled = false;
-          btn.textContent = '验证并执行';
+          btn.textContent = 'Verify & Run';
           if (res.trim() === 'AUTH_OK') {
             sessionStorage.setItem('dvr_auth_u', u);
             sessionStorage.setItem('dvr_auth_p', p);
@@ -984,14 +984,14 @@ cat << 'EOF'
               execCustomWithAuth(cmd, u, p);
             }
           } else {
-            err.textContent = '❌ 用户名或密码错误，请核对后重试';
+            err.textContent = '❌ Invalid username or password';
             err.style.display = 'block';
           }
         })
         .catch(e => {
           btn.disabled = false;
-          btn.textContent = '验证并执行';
-          err.textContent = '网络验证异常: ' + e;
+          btn.textContent = 'Verify & Run';
+          err.textContent = 'Network verification error: ' + e;
           err.style.display = 'block';
         });
     }
@@ -1002,7 +1002,7 @@ cat << 'EOF'
       sessionStorage.removeItem('dvr_auth_p');
       updateAuthStatusUI();
       const out = document.getElementById('termOutput');
-      out.textContent += '\n[管理员已安全退出，切换至访客免密预设模式]\n';
+      out.textContent += '\n[Logged out safely. Switched to preset mode.]\n';
       out.scrollTop = out.scrollHeight;
     }
 
@@ -1016,11 +1016,11 @@ cat << 'EOF'
       fetch('/api_exec.cgi?action=preset&run=' + encodeURIComponent(b64))
         .then(r => r.text())
         .then(txt => {
-          out.textContent += (txt.trim() ? txt : '[执行成功，无输出]') + '\n';
+          out.textContent += (txt.trim() ? txt : '[Command executed successfully with no output]') + '\n';
           out.scrollTop = out.scrollHeight;
         })
         .catch(e => {
-          out.textContent += '执行错误: ' + e + '\n';
+          out.textContent += 'Execution error: ' + e + '\n';
           out.scrollTop = out.scrollHeight;
         });
     }
@@ -1069,29 +1069,29 @@ cat << 'EOF'
       fetch('/api_exec.cgi?action=sh&u=' + encodeURIComponent(u) + '&p=' + encodeURIComponent(p) + '&run=' + encodeURIComponent(b64))
         .then(r => r.text())
         .then(txt => {
-          if (txt.includes('🔒 认证失败')) {
+          if (txt.includes('Authentication failed')) {
             sessionStorage.removeItem('dvr_auth_u');
             sessionStorage.removeItem('dvr_auth_p');
             updateAuthStatusUI();
             pendingCustomCmd = cmd;
-            openAuthModal('管理员凭证已失效，请重新验证');
+            openAuthModal('Session expired. Please re-authenticate.');
           }
-          out.textContent += (txt.trim() ? txt : '[执行成功，无输出]') + '\n';
+          out.textContent += (txt.trim() ? txt : '[Command executed successfully with no output]') + '\n';
           out.scrollTop = out.scrollHeight;
         })
         .catch(e => {
-          out.textContent += '执行错误: ' + e + '\n';
+          out.textContent += 'Execution error: ' + e + '\n';
           out.scrollTop = out.scrollHeight;
         });
     }
 
     // Reboot System
     function triggerReboot() {
-      if (!confirm('确定要重启 Clinton DVR 吗？系统将在 20 秒后重新上线。')) return;
+      if (!confirm('Are you sure you want to reboot the Clinton DVR? System will come back online in ~20 seconds.')) return;
       fetch('/api_exec.cgi?action=reboot')
         .then(r => r.text())
         .then(msg => {
-          alert(msg || 'DVR 正在重启中，请等待约 20 秒后刷新页面。');
+          alert(msg || 'DVR is rebooting. Please wait ~20 seconds and refresh.');
         });
     }
 
@@ -1113,7 +1113,7 @@ cat << 'EOF'
     }
     function showCopied(el) {
       const oldHtml = el.innerHTML;
-      el.innerHTML = '<span style="color:var(--success);">✅ 已复制 RTSP 直连地址</span>';
+      el.innerHTML = '<span style="color:var(--success);">✅ Copied RTSP URL to clipboard</span>';
       setTimeout(() => el.innerHTML = oldHtml, 1500);
     }
 
@@ -1156,7 +1156,7 @@ cat << 'EOF'
             if (this.decoder) {
               if (this.canvas) this.canvas.style.display = 'block';
               if (this.video) this.video.style.display = 'none';
-              this.drawPlaceholder('正在连接 DVR 本地 H.264 硬件流...');
+              this.drawPlaceholder('Connecting to hardware H.264 stream...');
               this.startLoop();
               return;
             }
@@ -1186,8 +1186,8 @@ cat << 'EOF'
           this.mode = 'unsupported';
           if (this.canvas) this.canvas.style.display = 'block';
           if (this.video) this.video.style.display = 'none';
-          this.drawPlaceholder('请使用现代浏览器查看 (Chrome / Safari / Edge)', true);
-          if (this.badge) this.badge.innerText = '⚠️ 浏览器不支持';
+          this.drawPlaceholder('Please use a modern browser (Chrome / Safari / Edge)', true);
+          if (this.badge) this.badge.innerText = '⚠️ Unsupported Browser';
         }
       }
 
@@ -1198,7 +1198,7 @@ cat << 'EOF'
               this.ctx.drawImage(frame, 0, 0, this.canvas.width, this.canvas.height);
               if (!this.hasRendered) {
                 this.hasRendered = true;
-                if (this.badge) this.badge.innerText = '⚡ 硬件硬解 1 FPS';
+                if (this.badge) this.badge.innerText = '⚡ Hardware Stream';
               }
             }
             frame.close();
@@ -1235,7 +1235,7 @@ cat << 'EOF'
             this.video.addEventListener('loadeddata', () => {
               if (!this.hasRendered) {
                 this.hasRendered = true;
-                if (this.badge) this.badge.innerText = '⚡ 硬件硬解 1 FPS';
+                if (this.badge) this.badge.innerText = '⚡ Hardware Stream';
               }
             });
             this.video.addEventListener('error', (e) => {
@@ -1307,7 +1307,7 @@ cat << 'EOF'
         const btn = document.querySelector('button[onclick="refreshImages(true)"]');
         if (btn) {
           const old = btn.innerHTML;
-          btn.innerHTML = '✅ 已刷新';
+          btn.innerHTML = '✅ Refreshed';
           setTimeout(() => btn.innerHTML = old, 1000);
         }
       }
@@ -1315,24 +1315,24 @@ cat << 'EOF'
 
     // Parse clean uptime text
     function parseUptime(str) {
-      if (!str) return '获取中...';
+      if (!str) return 'Loading...';
       const m = str.match(/up\s+([^,]+(?:,\s*\d+:\d+)?),\s*load/i) || str.match(/up\s+([^,]+)/i);
       if (m) {
         let t = m[1].trim();
         const dayMatch = t.match(/(\d+)\s*days?,\s*(\d+):(\d+)/i);
         if (dayMatch) {
-          return dayMatch[1] + '天 ' + parseInt(dayMatch[2], 10) + '小时 ' + parseInt(dayMatch[3], 10) + '分钟';
+          return dayMatch[1] + 'd ' + parseInt(dayMatch[2], 10) + 'h ' + parseInt(dayMatch[3], 10) + 'm';
         }
         const hmMatch = t.match(/^(\d+):(\d+)$/);
         if (hmMatch) {
           const h = parseInt(hmMatch[1], 10), mn = parseInt(hmMatch[2], 10);
-          return mn > 0 ? (h + '小时 ' + mn + '分钟') : (h + '小时');
+          return mn > 0 ? (h + 'h ' + mn + 'm') : (h + 'h');
         }
         const minMatch = t.match(/(\d+)\s*mins?/i);
         if (minMatch) {
-          return minMatch[1] + '分钟';
+          return minMatch[1] + 'm';
         }
-        return t.replace(/days?/i, '天').replace(/min/i, '分钟');
+        return t;
       }
       return str.split(/load average/i)[0].replace(/^.*up\s+/i, '').replace(/,\s*$/, '').trim() || str;
     }
@@ -1360,7 +1360,7 @@ cat << 'EOF'
           // 2. Uptime in header
           if (d.uptime) {
             const el = document.getElementById('uptimeText');
-            if (el) el.textContent = '运行时间: ' + parseUptime(d.uptime);
+            if (el) el.textContent = 'Uptime: ' + parseUptime(d.uptime);
           }
 
           // 3. Memory
@@ -1387,7 +1387,7 @@ cat << 'EOF'
           const hddTotalGb = d.hdd_total_gb !== undefined ? d.hdd_total_gb : 912;
           const hddPct = d.hdd_pct || '1%';
           document.getElementById('valHdd').textContent = hddUsedGb + ' / ' + hddTotalGb + ' GB';
-          document.getElementById('txtHddPct').textContent = (d.hdd_health === 'PASSED' ? '健康 ' : '') + hddPct;
+          document.getElementById('txtHddPct').textContent = (d.hdd_health === 'PASSED' ? 'Healthy ' : '') + hddPct;
           document.getElementById('barHdd').style.width = hddPct;
         })
         .catch(err => {

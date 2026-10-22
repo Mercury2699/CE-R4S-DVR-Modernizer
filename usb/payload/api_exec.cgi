@@ -13,7 +13,7 @@ urldecode() {
 
 # 1. Reboot Action
 if [ "$ACTION" = "reboot" ]; then
-    echo "DVR 正在安全重启中，请等待约 20 秒后重新连接..."
+    echo "DVR is rebooting safely. Please wait ~20 seconds before reconnecting..."
     sync
     sleep 1
     /sbin/reboot &
@@ -103,8 +103,8 @@ if [ "$ACTION" = "sh" ]; then
     fi
 
     if [ "$AUTH_CHECK" != "AUTH_OK" ]; then
-        echo "🔒 认证失败：执行自定义 Shell 命令需要通过管理员身份验证。"
-        echo "请提供正确的管理员用户名及密码。"
+        echo "🔒 Authentication failed: Executing custom shell commands requires administrator verification."
+        echo "Please provide correct administrator username and password."
         exit 0
     fi
 
